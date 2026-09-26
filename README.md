@@ -8,6 +8,16 @@ NovaOS is an experimental operating system project and desktop simulator.
 
 The current public build is the **Standard PC** version.
 
+## Download
+
+**[Download Nova Simulator 0.5](https://github.com/NovaOsDev/NovaOS/releases/tag/v0.5.0)**
+
+Official releases and downloads are available on the GitHub Releases page.
+
+## Website
+
+**[Visit the official NovaOS website](https://novaosdev.github.io/NovaOS/)**
+
 ## Project
 
 Nova started as a low-level operating system experiment and later gained the Nova Simulator, which allows the desktop interface, applications, login system and other Nova features to be developed and tested faster.
@@ -36,11 +46,11 @@ NovaOS project started in **2026**.
 
 The development history of Nova is documented in:
 
-- `HISTORY.md`
-- `CHANGELOG.md`
-- `CREDITS.md`
+- [HISTORY.md](Nova-Simulator-0.5-STANDARD/HISTORY.md)
+- [CHANGELOG.md](Nova-Simulator-0.5-STANDARD/CHANGELOG.md)
+- [CREDITS.md](Nova-Simulator-0.5-STANDARD/CREDITS.md)
 
-The source code and official releases in this repository provide a public history of the project's development.
+The source code, Git history and official releases in this repository provide a public record of the project's development.
 
 ## Current Source Code
 

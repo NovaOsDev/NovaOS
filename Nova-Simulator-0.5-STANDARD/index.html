@@ -1,0 +1,93 @@
+<!doctype html>
+<html lang="de"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Nova Simulator 0.5</title><link rel="stylesheet" href="style.css"></head>
+<body>
+<section id="boot"><div class="mark">N</div><div class="nova">NOVA</div><div class="bootText">starting nova core</div><div class="spin"></div></section>
+
+<section id="setup" class="hidden"><div class="panel setup">
+  <div class="eyebrow">NOVA SETUP</div><h1>Mach Nova zu deinem.</h1><p>Erstelle dein lokales Simulator-Profil.</p>
+  <label>Name</label><input id="setupName" value="Samuel" maxlength="24">
+  <label>Passwort</label><input id="setupPass" type="password" placeholder="Passwort wählen">
+  <label>Passwort bestätigen</label><input id="setupPass2" type="password" placeholder="Noch einmal">
+  <div id="setupMsg" class="error"></div><button id="setupNext" class="primary">Nova starten</button>
+</div></section>
+
+<section id="lock" class="hidden">
+  <div class="lockClock" id="lockClock"></div><div class="lockDate" id="lockDate"></div>
+  <div class="loginbox"><div class="avatar">N</div><h2 id="loginName">Nova User</h2>
+    <input id="loginPass" type="password" placeholder="Passwort"><button id="loginBtn" class="primary">Anmelden</button>
+    <div id="loginMsg" class="error"></div>
+  </div>
+</section>
+
+<section id="desktop" class="hidden">
+ <div class="accentline"></div>
+ <div id="icons">
+  <button class="deskicon" data-open="browser"><span>◎</span><b>Nova Browser</b></button>
+  <button class="deskicon" data-open="files"><span>▰</span><b>Dateien</b></button>
+  <button class="deskicon" data-open="settings"><span>⚙</span><b>Einstellungen</b></button>
+  <button class="deskicon" data-open="terminal"><span>&gt;_</span><b>Terminal</b></button>
+  <button class="deskicon ownerOnly hidden" data-open="owner"><span>◆</span><b>Owner Console</b></button>
+ </div>
+
+ <div id="browser" class="window hidden" style="left:15%;top:9%;width:72%;height:72%">
+  <div class="titlebar"><div class="appmark">◎</div><div>Nova Browser</div><div class="controls"><button data-min>—</button><button data-max>□</button><button data-close>×</button></div></div>
+  <div class="browserbar"><button id="back">‹</button><button id="forward">›</button><button id="reload">↻</button><input id="url" value="https://www.wikipedia.org"><button id="go">Los</button></div>
+  <webview id="web" src="https://www.wikipedia.org" allowpopups></webview>
+ </div>
+
+ <div id="files" class="window hidden" style="left:22%;top:15%;width:60%;height:62%">
+  <div class="titlebar"><div class="appmark">▰</div><div>Dateien</div><div class="controls"><button data-min>—</button><button data-max>□</button><button data-close>×</button></div></div>
+  <div class="toolbar"><button>←</button><button>→</button><div class="path">Dieser PC / Nova</div></div>
+  <div class="explorer"><aside><b>Start</b><span>Desktop</span><span>Dokumente</span><span>Downloads</span><span>Bilder</span><span>Nova Drive</span></aside>
+   <main><h2>Nova</h2><div class="folders"><div>📁<b>Dokumente</b><small>Lokaler Ordner</small></div><div>📁<b>Downloads</b><small>Lokaler Ordner</small></div><div>🖼️<b>Bilder</b><small>Lokaler Ordner</small></div><div>💾<b>Nova Drive</b><small>Simulator-Speicher</small></div></div></main>
+  </div>
+ </div>
+
+ <div id="settings" class="window hidden" style="left:25%;top:14%;width:54%;height:64%">
+  <div class="titlebar"><div class="appmark">⚙</div><div>Einstellungen</div><div class="controls"><button data-min>—</button><button data-max>□</button><button data-close>×</button></div></div>
+  <div class="settings"><aside><button class="active">System</button><button>Personalisierung</button><button>Konten</button><button>Netzwerk</button><button>Info</button></aside>
+  <main><h2>System</h2><div class="settingrow"><div><b>Nova Simulator</b><small>Version 0.2</small></div><span class="pill">Aktiv</span></div>
+  <div class="settingrow"><div><b>Darstellung</b><small>Dunkles Nova-Design</small></div><button id="gridToggle">Grid an/aus</button></div>
+  <div class="settingrow"><div><b>Über Nova</b><small>Nova Simulator 0.5 · Erstellt von Samuel.Vieaira.Rodrigues</small></div><span class="pill">2026</span></div>
+  <div class="settingrow"><div><b>Build-Information</b><small>Nova 0.5 · Build NOVA-050-STD · Creator: Samuel.Vieaira.Rodrigues</small></div><span class="pill">OFFICIAL</span></div>
+  <div class="settingrow"><div><b>Geräterolle</b><small id="roleText">Standard PC</small></div><span id="rolePill" class="pill">USER</span></div>
+  <div class="settingrow"><div><b>Profil</b><small id="profileText"></small></div><button id="lockNow">Sperren</button></div>
+  <div class="settingrow"><div><b>Zurücksetzen</b><small>Lokales Simulator-Profil löschen</small></div><button id="resetProfile">Reset</button></div></main></div>
+ </div>
+
+ <div id="terminal" class="window hidden" style="left:28%;top:20%;width:52%;height:50%">
+  <div class="titlebar"><div class="appmark">&gt;_</div><div>Nova Terminal</div><div class="controls"><button data-min>—</button><button data-max>□</button><button data-close>×</button></div></div>
+  <div class="terminal"><div id="termOut">Nova Terminal 0.2<br>Tippe <b>help</b> für Befehle.<br><br></div><div class="prompt"><span>nova&gt;</span><input id="termIn" autocomplete="off"></div></div>
+ </div>
+
+ 
+ <div id="owner" class="window hidden" style="left:20%;top:12%;width:64%;height:66%">
+  <div class="titlebar"><div class="appmark">◆</div><div>NOVA OWNER CONSOLE</div><div class="controls"><button data-min>—</button><button data-max>□</button><button data-close>×</button></div></div>
+  <div class="ownerconsole">
+    <div class="ownerhero"><div class="ownerbadge">◆ OWNER</div><h2>Nova Control Center</h2><p>Privilegierter Bereich dieses Nova-Profils.</p></div>
+    <div class="ownerstats"><div><small>DEVICE ROLE</small><b>OWNER PC</b></div><div><small>ACCESS LEVEL</small><b>ROOT / DEVELOPER</b></div><div><small>BUILD</small><b>0.4.0</b></div></div>
+    <h3>Owner-Werkzeuge</h3>
+    <div class="owneractions">
+      <button id="devMode">Developer Mode <span>OFF</span></button>
+      <button id="systemInfo">Systembericht anzeigen</button>
+      <button id="ownerLock">PC sperren</button>
+      <button id="ownerToast">Test-Benachrichtigung</button>
+    </div>
+    <div id="ownerLog" class="ownerlog">NOVA OWNER SERVICE READY<br>Authenticated owner: Samuel.Vieaira.Rodrigues<br></div>
+  </div>
+ </div>
+
+ <div id="start" class="hidden"><div class="startTop"><div class="miniavatar">N</div><div><b id="startName">Nova User</b><small>Lokales Profil</small></div></div>
+  <input id="appSearch" placeholder="Apps suchen...">
+  <div class="startGrid"><button data-open="browser">◎<span>Browser</span></button><button data-open="files">▰<span>Dateien</span></button><button data-open="settings">⚙<span>Einstellungen</span></button><button data-open="terminal">&gt;_<span>Terminal</span></button><button class="ownerOnly hidden" data-open="owner">◆<span>Owner</span></button></div>
+  <div class="startBottom"><span>NOVA 0.5</span><button id="power">⏻</button></div>
+ </div>
+
+ <div id="quick" class="hidden"><h3>Schnelleinstellungen</h3><div class="quickgrid"><button class="on">◉ Netzwerk</button><button class="on">🔊 Sound</button><button>☾ Fokus</button><button>☼ Anzeige</button></div><input type="range" min="0" max="100" value="70"><small>Helligkeit (Simulation)</small></div>
+ <div id="toast" class="toast hidden"><b>Nova</b><span></span></div>
+
+ <footer class="taskbar"><button id="startBtn" class="startBtn">N</button><div id="running"></div><div class="tray"><button id="quickBtn">⌃ ◉ 🔊</button><button id="clockBtn"><b id="clock"></b><small id="date"></small></button></div></footer>
+</section>
+<div id="novaCredit">Credits: Samuel.Vieaira.Rodrigues</div>
+<script src="renderer.js"></script></body></html>

@@ -1,0 +1,6 @@
+NOVA SIMULATOR OFFICIAL BUILD
+Version: 0.5.0
+Build ID: NOVA-050-STD
+Variant: STANDARD PC
+Creator: Samuel.Vieaira.Rodrigues
+Year: 2026

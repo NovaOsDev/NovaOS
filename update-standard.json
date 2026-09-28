@@ -1,9 +1,9 @@
 {
   "edition": "STANDARD",
   "channel": "stable",
-  "version": "0.7.1.1",
+  "version": "0.7.1.2",
   "published": "2026-09-28",
-  "notes": "Nova Update wurde eingerichtet. Du verwendest bereits die aktuelle STANDARD-Version.",
-  "url": "https://github.com/NovaOsDev/NovaOS/releases/download/v0.7.1.1/Nova-Simulator-0.7.1.1-STANDARD.zip",
-  "sha256": "cf3a476b475cc0d2b3b577e377016bb8f70050c15967452ee81e2b72a8a8269a"
+  "notes": "Testupdate 0.7.1.2: Nova Update-Kanal aktiviert und Versionsdaten synchronisiert.",
+  "url": "https://github.com/NovaOsDev/NovaOS/releases/download/v.0.7.1.2/Nova-Simulator-0.7.1.2-STANDARD.zip",
+  "sha256": "77aa6b1160261eff25e8dc5dc1408955e49a72ae6cc438b71a3f8600f37183db"
 }

@@ -1,9 +1,9 @@
 {
   "edition": "STANDARD",
   "channel": "stable",
-  "version": "0.7.1.2",
+  "version": "0.8.1.0",
   "published": "2026-09-28",
-  "notes": "Testupdate 0.7.1.2: Nova Update-Kanal aktiviert und Versionsdaten synchronisiert.",
-  "url": "https://github.com/NovaOsDev/NovaOS/releases/download/v.0.7.1.2/Nova-Simulator-0.7.1.2-STANDARD.zip",
-  "sha256": "77aa6b1160261eff25e8dc5dc1408955e49a72ae6cc438b71a3f8600f37183db"
+  "notes": "Nova 0.8.1.0 Major Redesign: neue Taskbar-Suche, bessere App-Icons, größeres Startmenü, Wallpaper-Auswahl und überarbeitete Oberfläche.",
+  "url": "https://github.com/NovaOsDev/NovaOS/releases/download/v0.8.1.0/Nova-Simulator-0.8.1.0-STANDARD-UPDATE.zip",
+  "sha256": "aadba84f3162b262f328cb05d23e2a30b6d56d3e059445510b0f0e1a29cb8512"
 }

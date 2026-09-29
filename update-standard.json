@@ -1,9 +1,9 @@
 {
   "edition": "STANDARD",
   "channel": "stable",
-  "version": "0.8.1.0",
-  "published": "2026-09-28",
-  "notes": "Nova 0.8.1.0 Major Redesign: neue Taskbar-Suche, bessere App-Icons, größeres Startmenü, Wallpaper-Auswahl und überarbeitete Oberfläche.",
-  "url": "https://github.com/NovaOsDev/NovaOS/releases/download/v0.8.1.0/Nova-Simulator-0.8.1.0-STANDARD-UPDATE.zip",
-  "sha256": "aadba84f3162b262f328cb05d23e2a30b6d56d3e059445510b0f0e1a29cb8512"
+  "version": "0.8.4.0",
+  "published": "2026-09-29",
+  "notes": "Nova 0.8.4.0 Store Navigation Update: klickbare Store-Kategorien, App-Karten, App-Details, Installationsfortschritt, Meine Apps und behobene 0-Apps-Anzeige.",
+  "url": "https://raw.githubusercontent.com/NovaOsDev/NovaOS/main/releases/Nova-Simulator-0.8.4.0-STANDARD-UPDATE.zip",
+  "sha256": "506c951dbc16a5d0d903933c26524973e76ab7cecc39a290ad60686539ac0b85"
 }

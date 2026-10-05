@@ -4,7 +4,7 @@ Backend für **LARP Demo**. Es speichert pro Gerät nur das Web-Push-Abo, einen 
 
 ## Ein-Klick-Deployment
 
-[![Deploy to Cloudflare](https://deploy.workers.cloudflare.com/button)](https://deploy.workers.cloudflare.com/?url=https://github.com/NovaOsDev/NovaOS/tree/main/larp-server)
+[![Deploy to Cloudflare](https://deploy.workers.cloudflare.com/button)](https://deploy.workers.cloudflare.com/?url=https://github.com/NovaOsDev/NovaOS)
 
 Cloudflare stellt die benötigte Durable-Object-Ressource automatisch bereit. Es sind **keine VAPID-Secrets** nötig: Jedes Gerät erhält beim ersten Verbinden ein eigenes VAPID-Schlüsselpaar, das ausschließlich im Durable Object gespeichert wird.
 

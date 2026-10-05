@@ -1,39 +1,87 @@
 <!doctype html>
 <html lang="de">
 <head>
-<meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
-<meta name="theme-color" content="#090b0e"><meta name="apple-mobile-web-app-capable" content="yes"><meta name="apple-mobile-web-app-status-bar-style" content="black-translucent"><meta name="apple-mobile-web-app-title" content="LARP">
-<link rel="manifest" href="manifest.json"><link rel="apple-touch-icon" href="apple-touch-icon.png"><title>LARP Demo</title>
-<style>
-:root{--bg:#090b0e;--panel:#12161b;--panel2:#171c22;--line:#252c34;--text:#f7f8fa;--muted:#929ba7;--green:#3cec8e;--red:#ff453a;--shadow:0 18px 50px rgba(0,0,0,.34)}
-*{box-sizing:border-box;-webkit-tap-highlight-color:transparent}html,body{margin:0;background:var(--bg);color:var(--text);font-family:-apple-system,BlinkMacSystemFont,"SF Pro Display","Segoe UI",sans-serif}body{min-height:100vh;background:radial-gradient(circle at 110% -10%,rgba(60,236,142,.12),transparent 34%),radial-gradient(circle at -10% 35%,rgba(88,105,125,.13),transparent 30%),var(--bg);padding:calc(env(safe-area-inset-top) + 14px) 16px calc(env(safe-area-inset-bottom) + 86px)}
-.app{max-width:680px;margin:0 auto}.top{display:flex;align-items:center;justify-content:space-between;margin-bottom:18px}.brand{display:flex;align-items:center;gap:12px}.brand img{width:50px;height:50px;border-radius:15px;box-shadow:var(--shadow)}.brand h1{font-size:26px;line-height:1;margin:0;letter-spacing:.18em}.brand p{margin:6px 0 0;color:var(--muted);font-size:13px}.pill{font-size:12px;padding:7px 10px;border:1px solid var(--line);background:var(--panel);border-radius:999px;color:#c7ced6}
-.hero{padding:17px;border:1px solid var(--line);background:linear-gradient(180deg,rgba(24,29,35,.96),rgba(15,18,23,.96));border-radius:22px;box-shadow:var(--shadow)}.hero-head{display:flex;justify-content:space-between;gap:10px;align-items:center;margin-bottom:14px}.hero-head h2{font-size:19px;margin:0}.status{font-size:12px;color:var(--muted)}.grid{display:grid;grid-template-columns:1fr 1fr;gap:10px}.field{background:var(--panel2);border:1px solid var(--line);border-radius:17px;padding:13px}.field label{display:block;color:var(--muted);font-size:12px;margin-bottom:7px}.field input,.field select{width:100%;border:0;outline:0;background:transparent;color:var(--text);font-size:18px;font-weight:700;appearance:none;-webkit-appearance:none}.field input[type="datetime-local"]{font-size:15px}
-button{font:inherit}.primary,.secondary,.danger{width:100%;border:0;border-radius:17px;padding:15px 16px;font-weight:800;font-size:16px;cursor:pointer}.primary{margin-top:12px;background:linear-gradient(135deg,var(--green),#57f09f);color:#07110b}.secondary{background:var(--panel2);border:1px solid var(--line);color:var(--text)}.danger{background:#281415;border:1px solid #592526;color:#ff8b84}.actions{display:grid;grid-template-columns:1fr 1fr;gap:10px;margin-top:10px}
-.section{margin-top:22px}.section-title{display:flex;justify-content:space-between;align-items:center;margin:0 2px 10px}.section-title h3{font-size:18px;margin:0}.section-title span{color:var(--muted);font-size:12px}.summary{display:grid;grid-template-columns:repeat(3,1fr);gap:9px}.metric{background:var(--panel);border:1px solid var(--line);border-radius:17px;padding:13px;min-width:0}.metric small{display:block;color:var(--muted);font-size:11px;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}.metric strong{display:block;font-size:20px;margin-top:6px}.metric em{display:block;color:var(--green);font-style:normal;font-size:11px;margin-top:5px}.list{background:var(--panel);border:1px solid var(--line);border-radius:20px;overflow:hidden}.row{display:grid;grid-template-columns:auto 1fr auto;gap:11px;align-items:center;padding:14px;border-bottom:1px solid var(--line)}.row:last-child{border-bottom:0}.dot{width:10px;height:10px;background:var(--green);border-radius:999px;box-shadow:0 0 15px rgba(60,236,142,.65)}.row b{font-size:15px}.row small{display:block;color:var(--muted);margin-top:3px}.time{font-size:12px;color:#b5bdc6}.notice{padding:13px 14px;border-radius:17px;margin-top:12px;background:#102019;border:1px solid #214c36;color:#bff8d7;font-size:13px;line-height:1.4}.notice.warn{background:#211c10;border-color:#4d4120;color:#f5dea4}.tabs{position:fixed;left:12px;right:12px;bottom:calc(env(safe-area-inset-bottom) + 8px);max-width:680px;margin:auto;background:rgba(15,18,22,.90);backdrop-filter:blur(22px);-webkit-backdrop-filter:blur(22px);border:1px solid var(--line);border-radius:22px;padding:9px 10px;display:grid;grid-template-columns:repeat(4,1fr);z-index:10}.tab{text-align:center;color:var(--muted);font-size:11px;padding:5px}.tab span{display:block;font-size:19px;margin-bottom:2px}.tab.active{color:var(--green)}.empty{color:var(--muted);padding:20px;text-align:center;font-size:13px}.badge-preview{display:inline-flex;align-items:center;gap:8px}.badge-dot{display:inline-grid;place-items:center;background:var(--red);min-width:22px;height:22px;padding:0 6px;border-radius:999px;color:#fff;font-weight:800;font-size:12px}@media(max-width:430px){.brand h1{font-size:23px}.summary{grid-template-columns:1fr 1fr}.summary .metric:last-child{grid-column:1/-1}}
-</style></head><body>
-<div class="app"><header class="top"><div class="brand"><img src="icon-192.png" alt="LARP Icon"><div><h1>LARP</h1><p>Sales Simulation Demo</p></div></div><div class="pill">DEMO</div></header>
-<section class="hero"><div class="hero-head"><h2>Simulation Setup</h2><div id="runStatus" class="status">Bereit</div></div>
-<div class="grid">
-<div class="field"><label for="sales">Verkäufe</label><input id="sales" type="number" min="1" max="250" value="25"></div>
-<div class="field"><label for="duration">Zeitraum</label><select id="duration"><option value="30">30 Minuten</option><option value="60">1 Stunde</option><option value="180" selected>3 Stunden</option><option value="360">6 Stunden</option><option value="720">12 Stunden</option><option value="1440">24 Stunden</option></select></div>
-<div class="field"><label for="start">Start</label><input id="start" type="datetime-local"></div>
-<div class="field"><label for="minAmount">Beträge ab</label><input id="minAmount" type="number" min="1" max="9999" value="15"></div>
-<div class="field"><label for="maxAmount">Beträge bis</label><input id="maxAmount" type="number" min="1" max="9999" value="160"></div>
-<div class="field"><label for="spread">Verteilung</label><select id="spread"><option value="even" selected>Gleichmäßig</option><option value="random">Zufällig</option><option value="burst">In Wellen</option></select></div>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+  <meta name="theme-color" content="#080a0d">
+  <meta name="apple-mobile-web-app-capable" content="yes">
+  <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+  <meta name="apple-mobile-web-app-title" content="LARP">
+  <link rel="manifest" href="./manifest.json">
+  <link rel="apple-touch-icon" href="./apple-touch-icon.png">
+  <link rel="stylesheet" href="./style.css">
+  <title>LARP Demo</title>
+</head>
+<body>
+<div id="appShell">
+  <header class="topbar">
+    <div class="brand"><img src="./icon-192.png" class="brand-icon" alt=""><div><div class="brand-name">LARP</div><div class="brand-sub">Sales Simulation</div></div></div>
+    <div class="demo-chip">SIMULATION</div>
+  </header>
+  <main>
+    <section class="view active" data-view="home">
+      <div class="hero-card">
+        <div class="eyebrow">ÜBERSICHT</div>
+        <div class="hero-line"><div><h1>Deine Simulation</h1><p id="homeStatus">Noch keine Simulation aktiv.</p></div><div id="serverPill" class="server-pill offline">LOCAL</div></div>
+        <div class="stats-grid">
+          <div class="stat-card"><span>Verkäufe</span><strong id="statSales">0</strong><small>geplant</small></div>
+          <div class="stat-card"><span>Umsatz</span><strong id="statRevenue">€0,00</strong><small>simuliert</small></div>
+          <div class="stat-card"><span>Ausgelöst</span><strong id="statSent">0</strong><small>Mitteilungen</small></div>
+        </div>
+        <div class="next-card"><div><span>Nächster Verkauf</span><strong id="nextSale">–</strong></div><div class="pulse"></div></div>
+      </div>
+      <div class="section-head"><h2>Letzte Aktivität</h2><button class="link-btn" data-goto="notifications">Alle</button></div>
+      <div id="homeActivity" class="activity-list"><div class="empty">Noch keine simulierten Verkäufe.</div></div>
+    </section>
+    <section class="view" data-view="simulate">
+      <div class="section-title-block"><div class="eyebrow">SIMULATION</div><h1>Verkäufe planen</h1><p>Lege Menge, Zeitraum und Start fest. LARP verteilt die Demo-Verkäufe automatisch.</p></div>
+      <div class="panel">
+        <div class="form-grid">
+          <label class="field"><span>Anzahl Verkäufe</span><input id="salesCount" type="number" min="1" max="250" value="25"></label>
+          <label class="field"><span>Zeitraum</span><select id="duration"><option value="30">30 Minuten</option><option value="60">1 Stunde</option><option value="180" selected>3 Stunden</option><option value="360">6 Stunden</option><option value="720">12 Stunden</option><option value="1440">24 Stunden</option></select></label>
+          <label class="field wide"><span>Startzeit</span><input id="startTime" type="datetime-local"></label>
+          <label class="field"><span>Betrag ab</span><input id="minAmount" type="number" min="1" max="9999" value="15"></label>
+          <label class="field"><span>Betrag bis</span><input id="maxAmount" type="number" min="1" max="9999" value="160"></label>
+          <label class="field wide"><span>Verteilung</span><select id="distribution"><option value="even">Gleichmäßig</option><option value="random">Zufällig</option><option value="burst">In Wellen</option></select></label>
+        </div>
+        <div id="previewLine" class="preview-line">25 Verkäufe in 3 Stunden.</div>
+        <button id="startSimulation" class="primary-btn">Simulation starten</button>
+        <button id="cancelSimulation" class="danger-btn hidden">Simulation stoppen</button>
+      </div>
+      <div class="section-head"><h2>Vorschau</h2><span id="previewMeta">noch nicht geplant</span></div>
+      <div id="planPreview" class="activity-list"><div class="empty">Die ersten geplanten Verkäufe erscheinen hier.</div></div>
+    </section>
+    <section class="view" data-view="notifications">
+      <div class="section-title-block"><div class="eyebrow">MITTEILUNGEN</div><h1>Aktivität</h1><p>Alle Einträge hier sind klar als Simulation gekennzeichnet.</p></div>
+      <div class="panel compact">
+        <div class="setting-row"><div><strong>Push-Mitteilungen</strong><small id="pushState">Noch nicht aktiviert</small></div><button id="enablePush" class="small-btn">Aktivieren</button></div>
+        <div class="setting-row"><div><strong>Test-Mitteilung</strong><small>Prüft Icon, Text und Sperrbildschirm.</small></div><button id="testPush" class="small-btn">Testen</button></div>
+      </div>
+      <div id="notificationHistory" class="activity-list"><div class="empty">Noch keine Mitteilungen.</div></div>
+    </section>
+    <section class="view" data-view="settings">
+      <div class="section-title-block"><div class="eyebrow">EINSTELLUNGEN</div><h1>LARP einrichten</h1><p>Ein Push-Server ermöglicht zeitgesteuerte Benachrichtigungen auch bei geschlossener App.</p></div>
+      <div class="panel">
+        <label class="field wide"><span>Push-Server</span><input id="serverUrl" type="url" placeholder="https://dein-larp-server.workers.dev"></label>
+        <div class="button-row"><button id="saveServer" class="secondary-btn">Speichern & verbinden</button><button id="disconnectServer" class="ghost-btn">Trennen</button></div>
+        <div id="serverInfo" class="info-box">Lokaler Modus: Mitteilungen laufen zuverlässig, solange LARP geöffnet ist.</div>
+      </div>
+      <div class="panel compact">
+        <div class="setting-row"><div><strong>Home-Bildschirm</strong><small id="installState">Prüfe Installation…</small></div><span id="installBadge" class="status-dot"></span></div>
+        <div class="setting-row"><div><strong>App-Badge</strong><small>Zeigt die Anzahl ausgelöster Demo-Verkäufe.</small></div><button id="clearBadge" class="small-btn">Leeren</button></div>
+        <div class="setting-row"><div><strong>Lokale Daten</strong><small>Plan, Verlauf und Einstellungen zurücksetzen.</small></div><button id="clearData" class="small-btn danger-small">Löschen</button></div>
+      </div>
+      <div class="safe-note"><b>Demo-Hinweis:</b> LARP verwendet eigene Marken und kennzeichnet simulierte Umsätze und Pushs als Demo/Simulation.</div>
+    </section>
+  </main>
+  <nav class="tabbar">
+    <button class="tab active" data-tab="home"><span>⌂</span><em>Home</em></button>
+    <button class="tab" data-tab="simulate"><span>▷</span><em>Simulate</em></button>
+    <button class="tab" data-tab="notifications"><span>♢</span><em>Notifs</em><i id="navBadge" class="nav-badge hidden">0</i></button>
+    <button class="tab" data-tab="settings"><span>⚙</span><em>Settings</em></button>
+  </nav>
 </div>
-<button id="startBtn" class="primary">▶ Simulation starten</button><div class="actions"><button id="notifyBtn" class="secondary">🔔 Mitteilungen aktivieren</button><button id="testBtn" class="secondary">Test-Mitteilung</button></div><button id="stopBtn" class="danger" style="margin-top:10px;display:none">Simulation stoppen</button>
-<div class="notice">Alle Umsätze und Bestellungen sind <b>Simulationen</b>. Pushs werden als <b>LARP Demo</b> gekennzeichnet.</div><div id="iosNote" class="notice warn" style="display:none">Auf dem iPhone zuerst zum Home-Bildschirm hinzufügen und von dort öffnen, damit Web-App-Mitteilungen unterstützt werden.</div></section>
-<section class="section"><div class="section-title"><h3>Simulation Summary</h3><span class="badge-preview">Badge <i id="badgeMini" class="badge-dot">0</i></span></div><div class="summary"><div class="metric"><small>Geplant</small><strong id="plannedCount">0</strong><em>Sales</em></div><div class="metric"><small>Simulierter Umsatz</small><strong id="revenue">€0</strong><em>Demo</em></div><div class="metric"><small>Laufzeit</small><strong id="durationOut">0m</strong><em id="startOut">–</em></div></div></section>
-<section class="section"><div class="section-title"><h3>Planned Activity</h3><span id="activityHint">Noch nichts geplant</span></div><div id="activityList" class="list"><div class="empty">Starte eine Simulation, um geplante Verkäufe zu sehen.</div></div></section></div>
-<nav class="tabs"><div class="tab active"><span>⌂</span>Home</div><div class="tab"><span>▷</span>Simulate</div><div class="tab"><span>♢</span>Notifications</div><div class="tab"><span>⚙</span>Settings</div></nav>
-<script>
-(()=>{const $=s=>document.querySelector(s),stateKey='larp-demo-state-v1';let timer=null,state=JSON.parse(localStorage.getItem(stateKey)||'null')||{plan:[],sent:[],running:false};const money=n=>new Intl.NumberFormat('de-DE',{style:'currency',currency:'EUR'}).format(n);const dtLocal=d=>{const p=n=>String(n).padStart(2,'0');return `${d.getFullYear()}-${p(d.getMonth()+1)}-${p(d.getDate())}T${p(d.getHours())}:${p(d.getMinutes())}`};if(!$('#start').value){const d=new Date(Date.now()+5*60000);d.setSeconds(0,0);$('#start').value=dtLocal(d)}if('serviceWorker'in navigator)navigator.serviceWorker.register('./sw.js').catch(()=>{});const isIOS=/iphone|ipad|ipod/i.test(navigator.userAgent),isStandalone=window.matchMedia('(display-mode: standalone)').matches||window.navigator.standalone;if(isIOS&&!isStandalone)$('#iosNote').style.display='block';function save(){localStorage.setItem(stateKey,JSON.stringify(state))}function makePlan(){const count=Math.max(1,Math.min(250,Number($('#sales').value)||1)),minutes=Number($('#duration').value)||60;let start=new Date($('#start').value);if(Number.isNaN(start.getTime()))start=new Date(Date.now()+60000);let min=Math.max(1,Number($('#minAmount').value)||10),max=Math.max(min,Number($('#maxAmount').value)||100);const spread=$('#spread').value,end=start.getTime()+minutes*60000,out=[];for(let i=0;i<count;i++){let ratio;if(spread==='random')ratio=Math.random();else if(spread==='burst'){const base=i/Math.max(1,count-1);ratio=Math.min(1,Math.max(0,base+Math.sin(i*1.7)*.07))}else ratio=count===1?0:i/(count-1);const t=start.getTime()+ratio*(end-start.getTime()),amount=Math.round((min+Math.random()*(max-min))*100)/100,items=1+Math.floor(Math.random()*4),order=6200+Math.floor(Math.random()*3700);out.push({id:`${order}-${i}-${Math.round(t)}`,order,items,amount,time:Math.round(t)})}out.sort((a,b)=>a.time-b.time);return{plan:out,start:start.getTime(),minutes}}
-async function enableNotifications(){if(!('Notification'in window)){alert('Mitteilungen werden in diesem Browser nicht unterstützt.');return}try{const p=await Notification.requestPermission();if(p==='granted'){alert('Mitteilungen sind aktiviert.');testNotification()}else alert('Mitteilungen wurden nicht erlaubt.')}catch{alert('Auf iPhone: App zuerst zum Home-Bildschirm hinzufügen und von dort öffnen.')}}
-async function showNotification(item){const title='LARP Demo',body=`Simulation · Order #${item.order} · ${item.items} ${item.items===1?'item':'items'} · ${money(item.amount)}`;try{const reg=await navigator.serviceWorker.ready;await reg.showNotification(title,{body,icon:'icon-192.png',badge:'icon-192.png',tag:`sale-${item.id}`,data:{url:'./'}})}catch{if(Notification.permission==='granted')new Notification(title,{body,icon:'icon-192.png'})}}
-function testNotification(){showNotification({id:'test-'+Date.now(),order:6364,items:3,amount:84.50})}async function setBadge(n){$('#badgeMini').textContent=n;try{if('setAppBadge'in navigator){if(n>0)await navigator.setAppBadge(n);else if('clearAppBadge'in navigator)await navigator.clearAppBadge()}}catch{}}
-function startSimulation(){const built=makePlan();state.plan=built.plan;state.sent=[];state.running=true;state.startedAt=Date.now();state.durationMinutes=built.minutes;save();render();tick();$('#stopBtn').style.display='block'}function stopSimulation(){state.running=false;save();clearInterval(timer);timer=null;$('#runStatus').textContent='Gestoppt';$('#stopBtn').style.display='none';render()}
-async function tick(){clearInterval(timer);const work=async()=>{if(!state.running)return;const now=Date.now(),due=state.plan.filter(x=>x.time<=now&&!state.sent.includes(x.id));for(const item of due){state.sent.push(item.id);await showNotification(item)}await setBadge(state.sent.length);const last=state.plan[state.plan.length-1];if(last&&now>last.time+5000&&state.sent.length>=state.plan.length)state.running=false;save();render()};await work();if(state.running)timer=setInterval(work,5000)}
-function render(){const plan=state.plan||[],rev=plan.reduce((s,x)=>s+x.amount,0);$('#plannedCount').textContent=plan.length;$('#revenue').textContent=money(rev);$('#durationOut').textContent=state.durationMinutes?(state.durationMinutes>=60?`${state.durationMinutes/60}h`:`${state.durationMinutes}m`):'0m';$('#startOut').textContent=plan.length?new Date(plan[0].time).toLocaleTimeString('de-DE',{hour:'2-digit',minute:'2-digit'})+' Start':'–';$('#activityHint').textContent=state.running?`${state.sent.length}/${plan.length} ausgelöst`:(plan.length?`${plan.length} geplant`:'Noch nichts geplant');$('#runStatus').textContent=state.running?'Läuft':'Bereit';$('#stopBtn').style.display=state.running?'block':'none';setBadge(state.sent?.length||0);if(!plan.length){$('#activityList').innerHTML='<div class="empty">Starte eine Simulation, um geplante Verkäufe zu sehen.</div>';return}$('#activityList').innerHTML=plan.slice(0,12).map(x=>{const sent=state.sent.includes(x.id);return `<div class="row"><div class="dot" style="${sent?'':'opacity:.35'}"></div><div><b>Order #${x.order}</b><small>${x.items} ${x.items===1?'item':'items'} · ${money(x.amount)}${sent?' · ausgelöst':''}</small></div><div class="time">${new Date(x.time).toLocaleTimeString('de-DE',{hour:'2-digit',minute:'2-digit'})}</div></div>`}).join('')+(plan.length>12?`<div class="empty">+ ${plan.length-12} weitere geplante Verkäufe</div>`:'')}
-$('#startBtn').addEventListener('click',startSimulation);$('#stopBtn').addEventListener('click',stopSimulation);$('#notifyBtn').addEventListener('click',enableNotifications);$('#testBtn').addEventListener('click',testNotification);render();if(state.running)tick()})();
-</script></body></html>
+<div id="toast" class="toast"></div>
+<script src="./app.js"></script>
+</body>
+</html>

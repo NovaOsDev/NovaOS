@@ -1,0 +1,23 @@
+{
+  "$schema": "node_modules/wrangler/config-schema.json",
+  "name": "larp-push-server",
+  "main": "larp-server/src/index.js",
+  "compatibility_date": "2026-10-05",
+  "durable_objects": {
+    "bindings": [
+      {
+        "name": "DEVICES",
+        "class_name": "LarpDevice"
+      }
+    ]
+  },
+  "migrations": [
+    {
+      "tag": "v1",
+      "new_sqlite_classes": ["LarpDevice"]
+    }
+  ],
+  "observability": {
+    "enabled": true
+  }
+}

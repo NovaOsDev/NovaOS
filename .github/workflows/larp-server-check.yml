@@ -1,0 +1,29 @@
+name: LARP server check
+
+on:
+  push:
+    paths:
+      - "larp-server/**"
+      - ".github/workflows/larp-server-check.yml"
+  pull_request:
+    paths:
+      - "larp-server/**"
+
+permissions:
+  contents: read
+
+jobs:
+  dry-run:
+    runs-on: ubuntu-latest
+    defaults:
+      run:
+        working-directory: larp-server
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: "22"
+          cache: "npm"
+          cache-dependency-path: larp-server/package-lock.json
+      - run: npm install
+      - run: npm run check
